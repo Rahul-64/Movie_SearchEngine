@@ -9,6 +9,8 @@ import { MovieProvider } from './contexts/MovieContext'
 
 const App = () => {
   return (
+
+    //wrap with provider
     <MovieProvider>
       <Navbar/>
     <main className="main-content">

@@ -2,6 +2,8 @@ import { createContext, useState, useEffect, useContext } from "react";
 
 const MovieContext = createContext();
 
+
+// subscribing global context
 export const Usemoviecontext = () => {
   const context = useContext(MovieContext);
 
@@ -15,7 +17,7 @@ export const Usemoviecontext = () => {
 export const MovieProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
 
-  //load hote hi check kro , favorites hai ki nhi in localstorage
+  //check any favorite is there in localstorage or not
   useEffect(() => {
     const favstrore = localStorage.getItem("favorites");
 
@@ -24,7 +26,7 @@ export const MovieProvider = ({ children }) => {
     }
   }, []);
 
-  //agar new favorites add hua ho toh, localstorage mein add kro
+  //add new favorites in local storage
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);

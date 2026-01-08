@@ -4,6 +4,8 @@ import { Usemoviecontext } from "../contexts/MovieContext";
 
 
 function Favorites(){
+
+    //take all favorites from localstorage
     const { favorites } = Usemoviecontext();
 
     if(favorites){
@@ -12,6 +14,7 @@ function Favorites(){
                 <h2>Your favorites moives</h2>
                 <div className="movies-grid">
                     {
+                        //display all favorite , moive card
                         favorites.map((movie) =>(
                             <MovieCard movie={movie} key={movie.id}/>
                         ))

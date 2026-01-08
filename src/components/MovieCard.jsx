@@ -6,11 +6,16 @@ import { Usemoviecontext } from '../contexts/MovieContext'
 
 const MovieCard = ({movie}) => {
   const {isfavorites , addtofavorites, removetofavorites } = Usemoviecontext();
+  //check movie.id is present in localstorage or not
   const favorite = isfavorites(movie.id);
 
   function onFavoriteCLick(e){
    e.preventDefault()
+
+   //onclicking heart button, if it is favorite one then remove from localstorage
    if(favorite) removetofavorites(movie.id);
+
+   //else add to localstorage
    else addtofavorites(movie);
 }
 
